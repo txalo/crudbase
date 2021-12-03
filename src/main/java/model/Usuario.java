@@ -5,6 +5,7 @@ public class Usuario {
 	private String nombre;
 	private double tiempo; 
 	private boolean admin;
+	
 	public int getID() {
 		return ID;
 	}

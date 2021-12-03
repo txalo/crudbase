@@ -27,7 +27,7 @@
 				<tbody>
 					<tr>
 						<td>1</td>
-						<td><img src="assets/imgs/sam.jpg" alt="" height=50
+						<td><img src="../../assets/imgs/sam.jpg" alt="" height=50
 							style="border-radius: 50%" /></td>
 						<td>Sam</td>
 						<td>100</td>
@@ -38,7 +38,7 @@
 					</tr>
 					<tr>
 						<td>2</td>
-						<td><img src="assets/imgs/gandalf.jpg" alt="" height=50
+						<td><img src="../../assets/imgs/gandalf.jpg" alt="" height=50
 							style="border-radius: 50%" /></td>
 						<td>Gandalf</td>
 						<td>150</td>
@@ -49,7 +49,7 @@
 					</tr>
 					<tr>
 						<td>3</td>
-						<td><img src="assets/imgs/legolas.jpg" alt="" height=50
+						<td><img src="../../assets/imgs/legolas.jpg" alt="" height=50
 							style="border-radius: 50%" /></td>
 						<td>Legolas</td>
 						<td>50</td>
