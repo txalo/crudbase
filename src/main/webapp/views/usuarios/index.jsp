@@ -9,8 +9,10 @@
 </head>
 <body>
 		<main class="container">
-		<div class="row col-2 my-3">
-			<a href="#" class="btn btn-primary"><i class="fas fa-user"></i> Agregar</a>
+		<%= session.getAttribute("usuario") %>
+		<div class="row">
+			<a href="/crudbase/usuario/agregar.do" class="btn btn-primary col-2 my-3"><i class="fas fa-user"></i> Agregar</a>			
+			<a href="/crudbase/salir" class="btn btn-danger col-2 my-3 mx-3"><i class="fas fa-sign-out-alt"></i> Salir</a>
 		</div>
 		<div class="row">
 			<table class="table table-striped">

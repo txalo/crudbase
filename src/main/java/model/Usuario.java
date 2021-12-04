@@ -6,6 +6,15 @@ public class Usuario {
 	private double tiempo; 
 	private boolean admin;
 	
+	
+	
+	public Usuario(int iD, int monedas, String nombre, double tiempo, boolean admin) {
+		ID = iD;
+		this.monedas = monedas;
+		this.nombre = nombre;
+		this.tiempo = tiempo;
+		this.admin = admin;
+	}
 	public int getID() {
 		return ID;
 	}
