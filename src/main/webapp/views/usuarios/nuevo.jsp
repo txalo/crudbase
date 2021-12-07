@@ -13,7 +13,7 @@
 	<div class="container">
 		<div class="row col-4 m-auto">
 			<h2>Nuevo Usuario</h2>
-			<form>
+			<form action="/crudbase/usuario/agregar.do" method="post">
 				<!-- Email input -->
 				<div class="form-outline mb-4">
 					<input type="text" id="form1Example1" class="form-control"
@@ -35,7 +35,7 @@
 
 
 				<!-- Submit button -->
-				<button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+				<button type="submit" class="btn btn-primary btn-block">Agregar</button>
 			</form>
 		</div>
 	</div>

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,11 +11,16 @@
 <jsp:include page="/partials/head.jsp"></jsp:include>
 </head>
 <body>
-		<main class="container">
-		<%= session.getAttribute("usuario") %>
+	<header>
+		<jsp:include page="/partials/nav.jsp"></jsp:include>
+	</header>
+	<main class="container">
 		<div class="row">
-			<a href="/crudbase/usuario/agregar.do" class="btn btn-primary col-2 my-3"><i class="fas fa-user"></i> Agregar</a>			
-			<a href="/crudbase/salir" class="btn btn-danger col-2 my-3 mx-3"><i class="fas fa-sign-out-alt"></i> Salir</a>
+			<a href="/crudbase/usuario/agregar.do"
+				class="btn btn-primary col-2 my-3"><i class="fas fa-user"></i>
+				Agregar</a> <a href="/crudbase/salir"
+				class="btn btn-danger col-2 my-3 mx-3"><i
+				class="fas fa-sign-out-alt"></i> Salir</a>
 		</div>
 		<div class="row">
 			<table class="table table-striped">
@@ -27,39 +35,24 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td><img src="../../assets/imgs/sam.jpg" alt="" height=50
-							style="border-radius: 50%" /></td>
-						<td>Sam</td>
-						<td>100</td>
-						<td>2.5</td>
-						<td><a href="#" class="btn btn-warning"><i
-								class="fa fa-edit"></i></a> <a href="#" class="btn btn-danger"><i
-								class="fas fa-trash"></i></a></td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td><img src="../../assets/imgs/gandalf.jpg" alt="" height=50
-							style="border-radius: 50%" /></td>
-						<td>Gandalf</td>
-						<td>150</td>
-						<td>5</td>
-						<td><a href="#" class="btn btn-warning"><i
-								class="fa fa-edit"></i></a> <a href="#" class="btn btn-danger"><i
-								class="fas fa-trash"></i></a></td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td><img src="../../assets/imgs/legolas.jpg" alt="" height=50
-							style="border-radius: 50%" /></td>
-						<td>Legolas</td>
-						<td>50</td>
-						<td>5.5</td>
-						<td><a href="#" class="btn btn-warning"><i
-								class="fa fa-edit"></i></a> <a href="#" class="btn btn-danger"><i
-								class="fas fa-trash"></i></a></td>
-					</tr>
+					<c:forEach items="${usuarios}" var="usr">
+						<tr>
+							<td><c:out value="${usr.ID}" /></td>
+							<td><img src=<c:out value="/crudbase/assets/imgs/${usr.nombre}.jpg" /> alt="" height=50
+								style="border-radius: 50%" /></td>
+							<td><c:out value="${usr.nombre}" /></td>
+							<td><c:out value="${usr.monedas}" /></td>
+							<td><c:out value="${usr.tiempo}" /></td>
+							<td>
+								<a href="/crudbase/usuarios/editar.do?ID=<c:out value="${usr.ID}" />" class="btn btn-warning">
+									<i class="fa fa-edit"></i>
+								</a> 
+								<a href="/crudbase/usuarios/borrar.do?ID=<c:out value="${usr.ID}" />" class="btn btn-danger">
+									<i class="fas fa-trash"></i>
+								</a>
+							</td>
+						</tr>
+					</c:forEach>					
 				</tbody>
 			</table>
 		</div>

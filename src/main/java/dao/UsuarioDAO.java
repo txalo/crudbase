@@ -74,7 +74,29 @@ public class UsuarioDAO {
 			return usuario;
 		} catch (Exception e) {
 			throw new Exception(e);
+		}		
+	}
+	
+	public int insert(String nombre, int monedas, double tiempo, int isAdmin) throws Exception {
+		try {
+			String sql = "INSERT INTO usuarios (nombre, monedas, tiempo, isAdmin) VALUES (?, ?, ?, ?)";
+			//String sql = "INSERT INTO usuarios (nombre, monedas, tiempo, isAdmin) VALUES ('Frodo', 1, 1, 0)";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			//statement.setInt(1, ID);
+			statement.setString(1, nombre);
+			statement.setInt(2, monedas);
+			statement.setDouble(3, tiempo);
+			statement.setInt(4, isAdmin);			
+			
+			int resultado = statement.executeUpdate();
+
+			return resultado;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new Exception(e.getMessage());
 		}
+		
 		
 	}
 

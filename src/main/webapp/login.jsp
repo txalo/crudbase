@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,13 @@
 	<div class="container">
 		<div class="row col-4 mx-auto mt-3">
 			<h2>Bienvenidos a Tierra Media</h2>
+			<c:if test="${flash != null}">
+				<div class="alert alert-danger">
+					<p>
+						<c:out value="${flash}" />
+					</p>
+				</div>
+			</c:if>
 			<form action="login" method="post">
 				<!-- Email input -->
 				<div class="form-outline mb-4">

@@ -27,7 +27,7 @@
 				<tbody>
 					<tr>
 						<td>1</td>
-						<td><img src="assets/imgs/sam.jpg" alt="" height=50
+						<td><img src="assets/imgs/admin.jpg" alt="" height=50
 							style="border-radius: 50%" /></td>
 						<td>Sam</td>
 						<td>100</td>

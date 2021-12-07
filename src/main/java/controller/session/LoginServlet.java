@@ -1,8 +1,11 @@
 package controller.session;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import dao.UsuarioDAO;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,21 +24,28 @@ public class LoginServlet extends HttpServlet {
 		String clave = req.getParameter("clave");
 		UsuarioDAO usrDAO = new UsuarioDAO();
 		Usuario usr = null;
+		List<Usuario> usuarios = new ArrayList<Usuario>();
 		
 		try {
 			usr = usrDAO.findUsuarioByNombre(usuario);
+			usuarios = usrDAO.findAll();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			
 			e.printStackTrace();
 		}
 		
-		if (usuario.equals(clave)) {
+		if (usr != null && usr.getNombre().equals(clave)) {
 			req.getSession().setAttribute("usuario", usr);	
-			//req.getSession().setAttribute("usuarios", usuarios);
+			req.getSession().setAttribute("usuarios", usuarios);
 			resp.sendRedirect("views/usuarios/index.jsp");
 		} else {
-			
+			req.setAttribute("flash", "Nombre de usuario o contraseña incorrectos");
+    		
+    		RequestDispatcher dispatcher = getServletContext()
+      		      .getRequestDispatcher("/login.jsp");
+    			
+    		   	dispatcher.forward(req, resp);
 		}
 	}
 

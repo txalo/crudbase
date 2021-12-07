@@ -20,3 +20,5 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"
   defer
 ></script>
+
+ <link rel="stylesheet" href="../../assets/css/style.css">
